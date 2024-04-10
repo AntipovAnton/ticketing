@@ -14,11 +14,12 @@ jest.mock('../nats-wrapper');
 process.env.STRIPE_KEY = 'sk_test_51P3l05Iiu09WVN1dNEs3YviHWcf1qP8nIhoxBirGQAu1VoDbk8RPMjXB1XqcfndYDOK7Nd5vIfSOVRR5XocgvNG700AeADh9kV';
 
 let mongo: any;
+
 beforeAll(async () => {
   process.env.JWT_KEY = 'asdfasdf';
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-  const mongo = await MongoMemoryServer.create();
+  mongo = await MongoMemoryServer.create();
   const mongoUri = mongo.getUri();
 
   await mongoose.connect(mongoUri, {});
