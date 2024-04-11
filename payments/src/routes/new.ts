@@ -41,7 +41,6 @@ router.post(
             amount: order.price * 100,
             source: token,
         });
-
         const payment = Payment.build({
             orderId,
             stripeId: charge.id,
